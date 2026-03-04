@@ -8,17 +8,17 @@ import { Button } from "@/shared/components/ui/button";
 import { FancyText } from "@/shared/components/ui/fancy-text";
 import { Marquee } from "@/shared/components/ui/marquee";
 import { RainbowButton } from "@/shared/components/ui/rainbow-button";
-import Image from "next/image";
+import { CldImage } from "next-cloudinary";
 import { useState } from "react";
 
 const brandImages = [
-  "/brand1.png",
-  "/brand2.png",
-  "/brand3.png",
-  "/brand4.png",
-  "/brand5.png",
-  "/brand8.png",
-  "/brand7.png",
+  "brand1",
+  "brand2",
+  "brand3",
+  "brand4",
+  "brand5",
+  "brand8",
+  "brand7",
 ];
 
 const Page = () => {
@@ -73,9 +73,11 @@ const Page = () => {
                 key={i}
                 className="relative w-26 h-18 md:w-32 md:h-20 overflow-hidden rounded-xl mx-6 md:mx-16"
               >
-                <Image
+                <CldImage
                   fill
                   alt=""
+                  format="auto"
+                  quality="auto"
                   src={brandImages[i]}
                   className="object-center object-cover dark:invert-96 contrast-200 dark:contrast-130 opacity-60 hover:opacity-100 transition-all duration-300"
                 />
