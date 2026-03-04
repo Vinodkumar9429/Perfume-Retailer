@@ -156,7 +156,7 @@ const Header = () => {
     return () => document.removeEventListener("keydown", down);
   }, []);
 
-  if (!mounted) return <div className="h-16 w-full bg-background" />;
+  if (!mounted) return <div className="h-16 w-full" />;
 
   return (
     <header className="w-full h-16 fixed top-0 left-0 bg-background z-50">
