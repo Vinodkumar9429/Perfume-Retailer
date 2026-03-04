@@ -9,6 +9,7 @@ import { SidebarProvider } from "@/shared/components/ui/sidebar";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import { TooltipProvider } from "@/shared/components/primitives/radix/tooltip";
 import { ThemeProvider } from "@/shared/components/Theme-provider";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
   title: "AVENTRAIL | Perfume Retail",
@@ -47,6 +48,7 @@ export default function RootLayout({
               <div id="clerk-captcha"></div>
             </SidebarProvider>
           </ThemeProvider>
+          <SpeedInsights />
         </body>
       </html>
     </ClerkProvider>
