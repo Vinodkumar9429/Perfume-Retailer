@@ -9,7 +9,7 @@ const HeroImage = () => {
         fill
         preload
         format="auto"
-        quality={"auto:best"}
+        quality={"80"}
         className="object-cover object-center block md:hidden dark:hidden"
       />
 
@@ -29,7 +29,7 @@ const HeroImage = () => {
         fill
         preload
         format="auto"
-        quality={"auto:best"}
+        quality={"80"}
         className="object-cover object-center hidden dark:block dark:md:hidden"
       />
 
