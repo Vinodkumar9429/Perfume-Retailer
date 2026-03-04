@@ -61,12 +61,12 @@ const Page = () => {
           </RainbowButton>
         </div>
       </div>
-      <div className="w-full h-32 mt-[110vh] flex flex-col items-center">
+      <div className="w-full h-40 mt-[110vh] flex flex-col items-center">
         <h2 className="px-2 md:px-16 text-xl md:text-2xl font-lejour uppercase  font-extralight relative w-full flex flex-row-reverse justify-center items-center h-20">
           <span className="border-t border-foreground/25 w-full h-1"></span>
           <span className="bg-background tracking-widest px-3">Brands</span>
         </h2>
-        <div className="w-full flex h-20 justify-center items-center overflow-x-hidden mt-4 overflow-hidden">
+        <div className="w-full flex h-20 justify-center items-center overflow-x-hidden mt-20 overflow-hidden">
           <Marquee pauseOnHover className="[--duration:20s] ">
             {Array.from({ length: 7 }).map((_, i) => (
               <div
