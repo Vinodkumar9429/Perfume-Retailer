@@ -66,7 +66,7 @@ const Page = () => {
           <span className="border-t border-foreground/25 w-full h-1"></span>
           <span className="bg-background tracking-widest px-3">Brands</span>
         </h2>
-        <div className="w-full flex h-20 justify-center items-center overflow-x-hidden mt-20 overflow-hidden">
+        <div className="w-full flex h-26 justify-center items-center overflow-x-hidden mt-20 overflow-hidden">
           <Marquee pauseOnHover className="[--duration:20s] ">
             {Array.from({ length: 7 }).map((_, i) => (
               <div
