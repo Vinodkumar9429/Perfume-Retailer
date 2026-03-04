@@ -1,0 +1,118 @@
+// mockProducts.ts
+
+
+
+
+export const BestSellers = [
+  {
+    id: "1",
+    name: "Coco Mademoiselle",
+    brand: "Chanel",
+    publicImageUrl: `women-chanel-coco-mademoiselle`,
+    gender: "female",
+    price: 12499,
+    rating: 4.8,
+  },
+  {
+    id: "2",
+    name: "Miss Dior Eau de Parfum",
+    brand: "Dior",
+    publicImageUrl: `women-dior-miss-dior-edp`,
+    gender: "female",
+    price: 10999,
+    rating: 4.7,
+  },
+  {
+    id: "3",
+    name: "Classique Eau de Parfum",
+    brand: "Jean Paul Gaultier",
+    publicImageUrl: `women-jpg-classique-edp`,
+    gender: "female",
+    price: 9499,
+    rating: 4.6,
+  },
+  {
+    id: "4",
+    name: "Velvet Infusion",
+    brand: "Dolce & Gabbana",
+    publicImageUrl: `women-dng-velvet-infusion`,
+    gender: "female",
+    price: 13999,
+    rating: 4.5,
+  },
+  {
+    id: "5",
+    name: "Libre Eau de Parfum",
+    brand: "Yves Saint Laurent",
+    publicImageUrl: `women-ysl-libre-edp`,
+    gender: "female",
+    price: 11999,
+    rating: 4.7,
+  },
+  {
+    id: "6",
+    name: "Born In Roma",
+    brand: "Valentino",
+    publicImageUrl: `women-valentino-born-in-roma-women`,
+    gender: "female",
+    price: 10499,
+    rating: 4.6,
+  },
+  {
+    id: "7",
+    name: "Man In Black",
+    brand: "Bvlgari",
+    publicImageUrl: `men-bvlgari-man-in-black`,
+    gender: "male",
+    price: 8999,
+    rating: 4.5,
+  },
+  {
+    id: "8",
+    name: "Allure Homme Sport Eau Extrême",
+    brand: "Chanel",
+    publicImageUrl: `men-chanel-allure-homme-sport-extreme`,
+    gender: "male",
+    price: 12499,
+    rating: 4.7,
+  },
+  {
+    id: "9",
+    name: "Luna Rossa Black",
+    brand: "Prada",
+    publicImageUrl: `men-prada-luna-rossa-black`,
+    gender: "male",
+    price: 9499,
+    rating: 4.6,
+  },
+  {
+    id: "10",
+    name: "Hero Eau de Parfum",
+    brand: "Burberry",
+    publicImageUrl: `men-burberry-hero-edp`,
+    gender: "male",
+    price: 10499,
+    rating: 4.4,
+  },
+  {
+    id: "11",
+    name: "Ysl Myslf Eau de Parfum",
+    brand: "Yves Saint Laurent",
+    publicImageUrl: `men-ysl-myslf-edp`,
+    gender: "male",
+    price: 11999,
+    rating: 4.7,
+  },
+  {
+    id: "12",
+    name: "Acqua Di Giò Profondo",
+    brand: "Giorgio Armani",
+    publicImageUrl: `men-armani-acqua-di-gio-profondo`,
+    gender: "male",
+    price: 11499,
+    rating: 4.8,
+  },
+];
+
+
+export type bestSellersType = typeof BestSellers[1];
