@@ -3,7 +3,7 @@ import Image from "next/image"
 
 const HeroImage = () => {
   return (
-    <div>
+    <>
        <Image
           src="/HeroM.png"
           alt="Background"
@@ -35,7 +35,7 @@ const HeroImage = () => {
           priority
           className="object-cover object-center hidden dark:md:block"
         />        
-    </div>
+    </>
   )
 }
 

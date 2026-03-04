@@ -156,7 +156,7 @@ const Header = () => {
     return () => document.removeEventListener("keydown", down);
   }, []);
 
-  if (!mounted) return null;
+  if (!mounted) return <div className="h-16 w-full bg-background" />;
 
   return (
     <header className="w-full h-16 fixed top-0 left-0 bg-background z-50">
@@ -330,7 +330,7 @@ const Header = () => {
               >
                 <DropdownMenuGroup className="w-full h-full">
                   <Link href={"/settings"}>
-                    <DropdownMenuItem className="cursor-pointer py-3 w-full h-full flex justify-between">
+                    <DropdownMenuItem className="cursor-pointer py-3 w-full h-full flex justify-between text-base">
                       <AnimateIcon
                         animateOnHover
                         className="w-full h-full flex justify-between items-center"
@@ -341,7 +341,7 @@ const Header = () => {
                     </DropdownMenuItem>
                   </Link>
                   <DropdownMenuItem
-                    className="cursor-pointer flex py-3 justify-between items-center text-destructive w-full h-full"
+                    className="cursor-pointer flex py-3 justify-between items-center text-destructive w-full h-full text-base"
                     onClick={handleSignOut}
                   >
                     Log out <LogOut className="text-destructive w-4 h-4" />
