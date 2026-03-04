@@ -7,6 +7,7 @@ const HeroImage = () => {
         src="HeroM"
         alt="Background"
         fill
+        preload
         format="auto"
         quality={"auto:best"}
         className="object-cover object-center block md:hidden dark:hidden"
@@ -16,6 +17,7 @@ const HeroImage = () => {
         src="Hero"
         alt="Background"
         fill
+        preload
         format="auto"
         quality={"auto:best"}
         className="object-cover object-center hidden md:block dark:md:hidden"
@@ -25,6 +27,7 @@ const HeroImage = () => {
         src="darkHeroM"
         alt="Background"
         fill
+        preload
         format="auto"
         quality={"auto:best"}
         className="object-cover object-center hidden dark:block dark:md:hidden"
@@ -34,6 +37,7 @@ const HeroImage = () => {
         src="darkHero1"
         alt="Background"
         fill
+        preload
         format="auto"
         quality={"auto:best"}
         className="object-cover object-center hidden dark:md:block"
