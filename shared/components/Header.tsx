@@ -313,7 +313,7 @@ const Header = () => {
           </div>
 
           {isSignedIn ? (
-            <DropdownMenu>
+            <DropdownMenu modal={false}>
               <DropdownMenuTrigger asChild>
                 <Avatar>
                   <AvatarImage src={user?.imageUrl} />

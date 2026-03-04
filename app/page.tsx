@@ -28,10 +28,10 @@ const Page = () => {
   return (
     <div className="w-full h-screen min-h-screen">
       <Header />
-      <div className="w-full h-full absolute inset-0 -z-10 flex justify-start items-center">
-        <HeroImage />
+      <div className="w-full h-full absolute inset-0 -z-10 flex justify-center items-start flex-col">
 
         <div className="relative z-10 w-full h-full">
+        <HeroImage />
           <h2 className="text-2xl md:text-5xl text-foreground absolute top-[38%] md:top-[50%] left-[51%] md:left-[20%] -translate-x-1/2 -translate-y-1/2 font-lejour">
             <FancyText
               fillClassName="text-black dark:text-white"
