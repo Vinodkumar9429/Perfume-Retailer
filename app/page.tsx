@@ -26,7 +26,7 @@ const Page = () => {
     "male",
   );
   return (
-    <div className="w-full h-screen min-h-screen">
+    <div className="w-full h-dvh min-h-dvh">
       <Header />
       <div className="w-full h-full absolute inset-0 -z-10 flex justify-center items-start flex-col">
 
