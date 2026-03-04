@@ -64,17 +64,18 @@ const Page = () => {
         </h2>
         <div className="w-full flex h-26 justify-center items-center overflow-x-hidden mt-20 overflow-hidden">
           <Marquee pauseOnHover className="[--duration:20s] ">
-            {Array.from({ length: 7 }).map((_, i) => (
+            {brandImages.map((id, i) => (
               <div
-                key={i}
+                key={id}
                 className="relative w-26 h-18 md:w-32 md:h-20 overflow-hidden rounded-xl mx-6 md:mx-16"
               >
                 <CldImage
                   fill
-                  alt=""
+                  alt={`Brand logo ${i + 1}`}
                   format="auto"
-                  quality="auto"
-                  src={brandImages[i]}
+                  quality="80"
+                  src={id}
+                  sizes="(max-width: 768px) 104px, 128px"
                   className="object-center object-cover dark:invert-96 contrast-200 dark:contrast-130 opacity-60 hover:opacity-100 transition-all duration-300"
                 />
               </div>
