@@ -43,15 +43,11 @@ const Page = () => {
             </FancyText>
           </h2>
           <h2 className="text-2xl md:text-5xl text-foreground absolute top-[41%] md:top-[54%] left-[51%] md:left-[20%] -translate-x-1/2 -translate-y-1/2 font-general-sans font-light">
-            <FancyText
+            <p
               className="text-3xl md:text-5xl"
-              fillClassName="text-black dark:text-white"
-              stagger={0.06}
-              duration={1.2}
-              delay={0.2}
             >
               Luxury
-            </FancyText>
+            </p>
           </h2>
           <RainbowButton
             variant={"outline"}
