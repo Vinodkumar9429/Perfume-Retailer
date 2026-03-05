@@ -7,8 +7,8 @@ import ProductCard from "@/shared/components/ProductCard";
 import { Button } from "@/shared/components/ui/button";
 import { FancyText } from "@/shared/components/ui/fancy-text";
 import { Marquee } from "@/shared/components/ui/marquee";
-import { RainbowButton } from "@/shared/components/ui/rainbow-button";
 import { CldImage } from "next-cloudinary";
+import Link from "next/link";
 import { useState } from "react";
 
 const brandImages = [
@@ -28,13 +28,12 @@ const Page = () => {
   return (
     <div className="w-full h-dvh min-h-dvh">
       <Header />
-      <div className="w-full h-full absolute inset-0 -z-10 flex justify-center items-start flex-col">
-
-        <div className="relative z-10 w-full h-full">
-        <HeroImage />
+      <div className="w-full h-full absolute inset-0 z-0 flex justify-center items-start flex-col">
+        <div className="relative w-full h-full">
+          <HeroImage />
           <h2 className="text-2xl md:text-5xl text-foreground absolute top-[38%] md:top-[50%] left-[51%] md:left-[20%] -translate-x-1/2 -translate-y-1/2 font-lejour">
             <FancyText
-              fillClassName="text-black dark:text-white"
+              fillClassName="text-foreground dark:text-[#E5C3A6]"
               stagger={0.06}
               duration={1.2}
               delay={0.4}
@@ -43,18 +42,19 @@ const Page = () => {
             </FancyText>
           </h2>
           <h2 className="text-2xl md:text-5xl text-foreground absolute top-[41%] md:top-[54%] left-[51%] md:left-[20%] -translate-x-1/2 -translate-y-1/2 font-general-sans font-light">
-            <p
-              className="text-3xl md:text-5xl"
-            >
-              Luxury
-            </p>
+            <p className="text-3xl md:text-5xl">Luxury</p>
           </h2>
-          <RainbowButton
-            variant={"outline"}
+          {/* <RainbowButton
+            variant={"default"}
+            color="#E5C3A6"
             className="absolute top-[70%] left-[50%] -translate-x-1/2 -translate-y-1/2 font-general-sans"
           >
             Shop Now <ArrowUp className="rotate-45" />
-          </RainbowButton>
+          </RainbowButton> */}
+
+          <Link href="/products" className="absolute top-[70%] left-[50%] -translate-x-1/2 -translate-y-1/2 font-general-sans bg-foreground dark:text-[#E5C3A6] dark:bg-background border border-white/40 text-background cursor-pointer px-4 flex justify-between gap-4 items-center py-1.5 rounded-xl group">
+            Shop Now <ArrowUp className="rotate-45 h-5 w-5 cursor-pointer group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform duration-500" />
+          </Link>
         </div>
       </div>
       <div className="w-full h-40 mt-[110vh] flex flex-col items-center">
@@ -110,27 +110,27 @@ const Page = () => {
             View All
           </Button>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-20 gap-y-30 mt-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-20 gap-y-30 mt-4 px-2 md:px-0">
           {BestSellers.filter((p) => p.gender === bestSellersGender).map(
-            (p) => 
-            <ProductCard 
-            key={p.id}
-            brand={p.brand}
-            gender={p.gender}
-            id={p.id}
-            name={p.name}
-            price={p.price}
-            publicImageUrl={p.publicImageUrl}
-            rating={p.rating}
-            />,
+            (p) => (
+              <ProductCard
+                key={p.id}
+                brand={p.brand}
+                gender={p.gender}
+                id={p.id}
+                name={p.name}
+                price={p.price}
+                publicImageUrl={p.publicImageUrl}
+                rating={p.rating}
+              />
+            ),
           )}
         </div>
       </div>
 
       <div className="w-screen h-screen min-h-screen flex justify-center items-center">
-          <h3>Under Construction, Keep Visiting for Updates.</h3>
+        <h3>Under Construction, Keep Visiting for Updates.</h3>
       </div>
-      
     </div>
   );
 };

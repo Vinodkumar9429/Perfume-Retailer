@@ -168,13 +168,12 @@ const Header = () => {
           </div>
 
           <div className="font-lejour md:text-xl relative hidden md:flex justify-center items-center tracking-widest">
-            AVEN
             <AnimatedGradientText
               speed={1}
               colorFrom={resolvedTheme === "dark" ? "white" : "black"}
               colorTo={resolvedTheme === "dark" ? "#C5A059" : "#C5A079"}
             >
-              TRAIL
+              AVENTRAIL
             </AnimatedGradientText>
           </div>
           <div className="bg-background text-foreground p-2 rounded-full flex md:hidden items-center justify-center border-2 border-border">
@@ -185,13 +184,12 @@ const Header = () => {
           </div>
         </div>
         <h1 className="font-lejour md:text-xl text-xl relative flex md:hidden justify-center items-center tracking-wider ">
-          AVEN
           <AnimatedGradientText
             speed={1}
             colorFrom={resolvedTheme === "dark" ? "white" : "black"}
-            colorTo={resolvedTheme === "dark" ? "#C5A059" : "#C5A079"}
+            colorTo={resolvedTheme === "dark" ? "#E5C3A6" : "#C5A079"}
           >
-            TRAIL
+            AVETRAIL
           </AnimatedGradientText>
         </h1>
 
@@ -281,7 +279,7 @@ const Header = () => {
           <div className="bg-background text-foreground p-2 rounded-full flex items-center justify-center border-2 border-border group">
             <div className="relative ">
               <ShoppingCart className="w-4 h-4 group-hover:rotate-20 transition-transform duration-300" />
-              <Badge className="scale-80 absolute bottom-[70%] left-1 bg-[#C5A059]">
+              <Badge className="scale-80 absolute bottom-[70%] left-1 bg-[#E5C3A6]">
                 1
               </Badge>
             </div>
