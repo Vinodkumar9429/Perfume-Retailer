@@ -128,8 +128,8 @@ const Page = () => {
         </div>
       </div>
 
-      <div className="w-screen h-screen min-h-screen flex justify-center items-center">
-        <h3>Under Construction, Keep Visiting for Updates.</h3>
+      <div className="w-screen h-screen min-h-screen flex justify-center items-center font-general-sans">
+        <h3>Under Development, Keep Visiting for Updates.</h3>
       </div>
     </div>
   );

@@ -151,7 +151,7 @@ const Header = () => {
   if (!mounted) return <div className="h-16 w-full" />;
 
   return (
-    <header className="w-full h-16 fixed top-0 left-0 bg-background z-50">
+    <header className="w-full h-16 fixed top-0 left-0 bg-background z-50 font-general-sans">
       <nav className="w-full h-full border-b dark:border-[#C5A059]/10 flex justify-between items-center px-1">
         <div className="w-[27%] md:w-1/5 lg:w-1/6 flex justify-evenly items-center md:justify-center gap-x-0">
           <div className="md:hidden block">
