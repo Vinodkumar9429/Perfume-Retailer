@@ -271,7 +271,7 @@ const Header = () => {
           <div className="bg-background text-foreground p-2 rounded-full flex items-center justify-center border-2 border-border group">
             <div className="relative ">
               <ShoppingCart className="w-4 h-4 group-hover:rotate-20 transition-transform duration-300" />
-              <Badge className="scale-80 absolute bottom-[70%] left-1 bg-[#E5C3A6]">
+              <Badge className="scale-80 absolute bottom-[70%] left-1 bg-foreground">
                 1
               </Badge>
             </div>
