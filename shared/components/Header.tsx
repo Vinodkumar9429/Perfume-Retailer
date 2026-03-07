@@ -1,6 +1,6 @@
 "use client";
 
-import { SidebarTrigger } from "@/shared/components/ui/sidebar";
+import { SidebarMenuButton, SidebarSeparator, SidebarTrigger } from "@/shared/components/ui/sidebar";
 import {
   Avatar,
   AvatarFallback,
@@ -16,7 +16,6 @@ import {
   ShoppingCart,
   Sun,
 } from "lucide-react";
-import { Button } from "@/shared/components/ui/button";
 import Link from "next/link";
 import { Badge } from "@/shared/components/ui/badge";
 import { Hyperlink } from "@/shared/components/ui/hyperlink";
@@ -32,13 +31,6 @@ import {
   NavigationMenuTrigger,
 } from "@/shared/components/ui/navigation-menu";
 import { NavItem } from "@/shared/components/SideBarContent";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuGroup,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/shared/components/ui/dropdown-menu";
 import { useRouter } from "next/navigation";
 import {
   Command,
@@ -51,9 +43,9 @@ import {
 } from "@/shared/components/ui/command";
 import { useDebounce } from "@/hooks/Debounce";
 import { Settings } from "@/components/animate-ui/icons/settings";
-import { AnimateIcon } from "@/components/animate-ui/icons/icon";
 import { AnimatedGradientText } from "@/shared/components/ui/animated-gradient-text";
 import { UserRound } from "@/components/animate-ui/icons/user-round";
+import { Popover, PopoverContent, PopoverTrigger } from "@/shared/components/ui/popover";
 
 const data: NavItem[] = [
   {
@@ -288,9 +280,9 @@ const Header = () => {
             <Heart className="w-4 h-4 group-hover:scale-120 transition-transform duration-300" />
           </div>
 
-          <div className="hidden md:flex justify-center items-center">
+          <div className="flex justify-center items-center">
             {mounted && resolvedTheme === "dark" ? (
-              <div className="px-3 py-1 border rounded-full">
+              <div className="px-2 py-2 border rounded-full">
                 <Sun
                   className="h-[1.2rem] w-[1.2rem]"
                   onClick={() => {
@@ -299,7 +291,7 @@ const Header = () => {
                 />
               </div>
             ) : (
-              <div className="px-3 py-1 border rounded-full">
+              <div className="px-2 py-2 border rounded-full">
                 <Moon
                   className="h-[1.2rem] w-[1.2rem]"
                   onClick={() => {
@@ -309,53 +301,73 @@ const Header = () => {
               </div>
             )}
           </div>
-
-          {isSignedIn ? (
-            <DropdownMenu modal={false}>
-              <DropdownMenuTrigger asChild>
-                <Avatar>
-                  <AvatarImage src={user?.imageUrl} />
-                  <AvatarFallback>
-                    {user?.firstName?.slice(0, 1).toUpperCase()}
-                  </AvatarFallback>
-                </Avatar>
-              </DropdownMenuTrigger>
-
-              <DropdownMenuContent
-                align="end"
-                alignOffset={5}
-                className="min-w-40 flex justify-start items-center"
-              >
-                <DropdownMenuGroup className="w-full h-full">
-                  <Link href={"/settings"}>
-                    <DropdownMenuItem className="cursor-pointer py-3 w-full h-full flex justify-between text-base">
-                      <AnimateIcon
-                        animateOnHover
-                        className="w-full h-full flex justify-between items-center"
-                      >
-                        Settings
-                        <Settings />
-                      </AnimateIcon>
-                    </DropdownMenuItem>
-                  </Link>
-                  <DropdownMenuItem
-                    className="cursor-pointer flex py-3 justify-between items-center text-destructive w-full h-full text-base"
-                    onClick={handleSignOut}
+          <div className="md:flex hidden">
+            {isSignedIn ? (
+              <Popover>
+                <PopoverTrigger asChild>
+                  <SidebarMenuButton
+                    size="lg"
+                    className="cursor-pointer transition-all hover:bg-accent"
                   >
-                    Log out <LogOut className="text-destructive w-4 h-4" />
-                  </DropdownMenuItem>
-                </DropdownMenuGroup>
-              </DropdownMenuContent>
-            </DropdownMenu>
-          ) : (
-            <Link href="/login">
-              <Button variant="outline" className="rounded-full px-[7px]">
-                <AnimateIcon animateOnHover>
-                  <UserRound />
-                </AnimateIcon>
-              </Button>
-            </Link>
-          )}
+                    <div className="flex justify-between items-center w-full font-general-sans">
+                      <Avatar className="h-8 w-8">
+                        <AvatarImage src={user?.imageUrl} />
+                        <AvatarFallback>
+                          {user?.firstName?.slice(0, 1).toUpperCase()}
+                        </AvatarFallback>
+                      </Avatar>
+                    </div>
+                  </SidebarMenuButton>
+                </PopoverTrigger>
+
+                <PopoverContent
+                  side="bottom"
+                  align="end"
+                  alignOffset={-20}
+                  className="w-60 p-2 ml-2"
+                >
+                  <div className="flex flex-col gap-1">
+                    <div className="px-2 py-1.5 mb-1">
+                      <p className="text-sm font-semibold">{user?.fullName}</p>
+                      <p className="text-xs text-muted-foreground truncate">
+                        {user?.primaryEmailAddress?.emailAddress}
+                      </p>
+                    </div>
+
+                    <SidebarSeparator className="my-1" />
+
+                    <Link
+                      href="/settings"
+                      className="flex items-center gap-2 px-2 py-2 text-sm rounded-md hover:bg-accent"
+                    >
+                      <Settings className="w-4 h-4" />
+                      Settings
+                    </Link>
+
+                    <button
+                      onClick={handleSignOut}
+                      className="flex items-center gap-2 px-2 py-2 text-sm rounded-md text-destructive hover:bg-destructive/10 w-full text-left"
+                    >
+                      <LogOut className="w-4 h-4" />
+                      Log out
+                    </button>
+                  </div>
+                </PopoverContent>
+              </Popover>
+            ) : (
+              <SidebarMenuButton asChild>
+                <Link
+                  href="/login"
+                  className="flex justify-between items-center w-full font-general-sans"
+                >
+                  <h4>Login</h4>
+                  <div className="p-1 border rounded-full">
+                    <UserRound className="w-5 h-5" />
+                  </div>
+                </Link>
+              </SidebarMenuButton>
+            )}
+          </div>
         </div>
       </nav>
     </header>

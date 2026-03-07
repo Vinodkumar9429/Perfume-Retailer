@@ -2,6 +2,7 @@
 import {
   SidebarContent,
   SidebarGroup,
+  SidebarGroupLabel,
   SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
@@ -10,12 +11,27 @@ import {
   SidebarMenuSubButton,
   SidebarMenuSubItem,
   SidebarRail,
+  SidebarSeparator,
   useSidebar,
 } from "@/shared/components/ui/sidebar";
 import Link from "next/link";
-import { ChevronRight, Heart, Moon, ShoppingBag, Sun } from "lucide-react";
-import { useTheme } from "next-themes";
+import {
+  ChevronRight,
+  Heart,
+  LogOut,
+  ShoppingBag,
+  UserRound,
+} from "lucide-react";
 import { useEffect, useState } from "react";
+import { useAuth, useClerk, useUser } from "@clerk/nextjs";
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from "@/shared/components/ui/avatar";
+import { useRouter } from "next/navigation";
+import { Settings } from "@/components/animate-ui/icons/settings";
+import { Popover, PopoverContent, PopoverTrigger } from "@/shared/components/ui/popover";
 
 export interface NavItem {
   title: string;
@@ -87,8 +103,16 @@ const data: DataType = {
 
 export function SideBarContentArea() {
   const { setOpenMobile } = useSidebar();
-  const { setTheme, resolvedTheme } = useTheme();
   const [mounted, setIsMounted] = useState(false);
+  const { isSignedIn } = useAuth();
+  const { signOut } = useClerk();
+  const router = useRouter();
+
+  const { user } = useUser();
+  const handleSignOut = async (e: React.FormEvent) => {
+    e.preventDefault();
+    await signOut(() => router.push("/"));
+  };
 
   useEffect(() => {
     const id = setTimeout(() => {
@@ -99,56 +123,77 @@ export function SideBarContentArea() {
 
   return (
     <>
-      <SidebarHeader>
-        <SidebarMenu>
-          <SidebarMenuItem>
-            <SidebarMenuButton size="lg" asChild></SidebarMenuButton>
-          </SidebarMenuItem>
-        </SidebarMenu>
-      </SidebarHeader>
+<SidebarHeader>
+  <SidebarMenu>
+    <SidebarGroupLabel>Account</SidebarGroupLabel>
+    <SidebarMenuItem>
+      {isSignedIn ? (
+        <Popover>
+          <PopoverTrigger asChild>
+            <SidebarMenuButton size="lg" className="cursor-pointer transition-all hover:bg-accent">
+              <div className="flex justify-between items-center w-full font-general-sans">
+                <h3>Profile</h3>
+                <Avatar className="h-8 w-8">
+                  <AvatarImage src={user?.imageUrl} />
+                  <AvatarFallback>
+                    {user?.firstName?.slice(0, 1).toUpperCase()}
+                  </AvatarFallback>
+                </Avatar>
+              </div>
+            </SidebarMenuButton>
+          </PopoverTrigger>
+          
+          <PopoverContent side="bottom" align="start" className="w-64 p-2 ml-2">
+            <div className="flex flex-col gap-1">
+              
+              <div className="px-2 py-1.5 mb-1">
+                <p className="text-sm font-semibold">{user?.fullName}</p>
+                <p className="text-xs text-muted-foreground truncate">
+                  {user?.primaryEmailAddress?.emailAddress}
+                </p>
+              </div>
+              
+              <SidebarSeparator className="my-1" />
+
+              {/* Action Links */}
+              <Link href="/settings" className="flex items-center gap-2 px-2 py-2 text-sm rounded-md hover:bg-accent">
+                <Settings className="w-4 h-4" />
+                Settings
+              </Link>
+
+              <button 
+                onClick={handleSignOut}
+                className="flex items-center gap-2 px-2 py-2 text-sm rounded-md text-destructive hover:bg-destructive/10 w-full text-left"
+              >
+                <LogOut className="w-4 h-4" />
+                Log out
+              </button>
+            </div>
+          </PopoverContent>
+        </Popover>
+      ) : (
+        <SidebarMenuButton asChild>
+          <Link href="/login" className="flex justify-between items-center w-full font-general-sans">
+            <h4>Login</h4>
+            <div className="p-1 border rounded-full">
+              <UserRound className="w-5 h-5" />
+            </div>
+          </Link>
+        </SidebarMenuButton>
+      )}
+    </SidebarMenuItem>
+  </SidebarMenu>
+</SidebarHeader>
+      <SidebarSeparator />
       <SidebarContent>
         <SidebarGroup>
-          <SidebarMenu className="gap-y-5 pt-12">
-            <SidebarMenuItem>
-              <SidebarMenuButton asChild>
-                <div
-                  className="flex justify-between items-center w-full"
-                  onClick={() => {
-                    setTheme(resolvedTheme === "light" ? "dark" : "light");
-                    setOpenMobile(false);
-                  }}
-                >
-                  <span>Dark Mode</span>
-                  <div className="flex justify-center items-center">
-                    {mounted && resolvedTheme === "dark" ? (
-                      <div className="px-3 py-1 border rounded-full">
-                        <Sun
-                          className="h-[1.2rem] w-[1.2rem]"
-                          onClick={() => {
-                            setTheme("light");
-                            setOpenMobile(false);
-                          }}
-                        />
-                      </div>
-                    ) : (
-                      <div className="px-3 py-1 border rounded-full">
-                        <Moon
-                          className="h-[1.2rem] w-[1.2rem]"
-                          onClick={() => {
-                            setTheme("dark");
-                            setOpenMobile(false);
-                          }}
-                        />
-                      </div>
-                    )}
-                  </div>
-                </div>
-              </SidebarMenuButton>
-            </SidebarMenuItem>
+
+              <SidebarGroupLabel>Navigation</SidebarGroupLabel>
+          <SidebarMenu className="gap-y-3">
             {data.navMain.map((item) => (
               <SidebarMenuItem
                 key={item.title}
-                className="py-1 rounded-xl focus:bg-accent"
+                className="py-1 rounded-xl focus:bg-accent font-general-sans"
               >
                 <SidebarMenuButton asChild>
                   <Link
