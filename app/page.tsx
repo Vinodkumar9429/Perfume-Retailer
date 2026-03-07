@@ -52,7 +52,7 @@ const Page = () => {
             Shop Now <ArrowUp className="rotate-45" />
           </RainbowButton> */}
 
-          <Link href="/products" className="absolute top-[70%] left-[50%] -translate-x-1/2 -translate-y-1/2 font-general-sans bg-foreground dark:text-[#E5C3A6] dark:bg-background border border-white/40 text-background cursor-pointer px-4 flex justify-between gap-4 items-center py-1.5 rounded-xl group">
+          <Link href="/" className="absolute top-[70%] left-[50%] -translate-x-1/2 -translate-y-1/2 font-general-sans bg-foreground dark:text-[#E5C3A6] dark:bg-background border border-white/40 text-background cursor-pointer px-4 flex justify-between gap-4 items-center py-1.5 rounded-xl group">
             Shop Now <ArrowUp className="rotate-45 h-5 w-5 cursor-pointer group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform duration-500" />
           </Link>
         </div>
