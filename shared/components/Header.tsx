@@ -360,7 +360,6 @@ const Header = () => {
                   href="/login"
                   className="flex justify-between items-center w-full font-general-sans"
                 >
-                  <h4>Login</h4>
                   <div className="p-1 border rounded-full">
                     <UserRound className="w-5 h-5" />
                   </div>
