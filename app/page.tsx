@@ -52,8 +52,12 @@ const Page = () => {
             Shop Now <ArrowUp className="rotate-45" />
           </RainbowButton> */}
 
-          <Link href="/" className="absolute top-[70%] left-[50%] -translate-x-1/2 -translate-y-1/2 font-general-sans bg-foreground dark:text-[#E5C3A6] dark:bg-background border border-white/40 text-background cursor-pointer px-4 flex justify-between gap-4 items-center py-1.5 rounded-xl group">
-            Shop Now <ArrowUp className="rotate-45 h-5 w-5 cursor-pointer group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform duration-500" />
+          <Link
+            href="/"
+            className="absolute top-[70%] left-[50%] -translate-x-1/2 -translate-y-1/2 font-general-sans bg-foreground dark:text-[#E5C3A6] dark:bg-background border border-white/40 text-background cursor-pointer px-4 flex justify-between gap-4 items-center py-1.5 rounded-xl group"
+          >
+            Shop Now{" "}
+            <ArrowUp className="rotate-45 h-5 w-5 cursor-pointer group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform duration-500" />
           </Link>
         </div>
       </div>
@@ -128,9 +132,58 @@ const Page = () => {
         </div>
       </div>
 
-      <div className="w-screen h-screen min-h-screen flex justify-center items-center font-general-sans">
-        <h3>Under Development, Keep Visiting for Updates.</h3>
+      <div className="w-screen h-screen min-h-screen font-general-sans mt-40">
+        <h2 className="px-2 md:px-16 text-xl md:text-2xl font-lejour uppercase  font-extralight relative w-full flex flex-row-reverse justify-center items-center h-20">
+          <span className="border-t border-foreground/25 w-full h-1"></span>
+          <span className="bg-background tracking-widest px-3 whitespace-nowrap">
+            Gender
+          </span>
+        </h2>
+
+        <div className="w-full h-full grid grid-cols-1 md:grid-cols-2 gap-y-14 place-items-center">
+          <Link href={"/"} className="relative">
+          <CldImage 
+          src="men" 
+          width={370} 
+          height={400} 
+          alt="Men"
+          format="auto"
+          quality={"auto"}
+          />
+
+          <span className="absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 text-white text-4xl">Men</span>
+          
+          </Link>
+          <Link href={"/"} className="relative">
+          <CldImage 
+          src="women" 
+          width={370} 
+          height={400} 
+          alt="Men"
+          format="auto"
+          quality={"auto"}
+          className="dark:saturate-20"
+          />
+
+          <span className="absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 text-white text-4xl">Women</span>
+
+          </Link>
+        </div>
       </div>
+
+      <div className="w-screen h-screen min-h-screen font-general-sans mt-40">
+        <h2 className="px-2 md:px-16 text-xl md:text-2xl font-lejour uppercase  font-extralight relative w-full flex flex-row-reverse justify-center items-center h-20">
+          <span className="border-t border-foreground/25 w-full h-1"></span>
+          <span className="bg-background tracking-widest px-3 whitespace-nowrap">
+            Categories
+          </span>
+        </h2>
+
+          
+          
+        </div>
+
+      
     </div>
   );
 };
