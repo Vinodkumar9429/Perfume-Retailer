@@ -3,7 +3,7 @@ import { CldImage } from "next-cloudinary"
 
 interface ProductImagePropTypes {
   pubilcId : string,
-  quality : "auto" | "auto:good" | "auto:best",
+  quality ?: "auto" | "auto:good" | "auto:best",
   alt : string
 }
 

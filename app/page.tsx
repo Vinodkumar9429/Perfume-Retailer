@@ -132,7 +132,7 @@ const Page = () => {
         </div>
       </div>
 
-      <div className="w-screen h-screen min-h-screen font-general-sans mt-40">
+      <div className="w-screen font-general-sans mt-40">
         <h2 className="px-2 md:px-16 text-xl md:text-2xl font-lejour uppercase  font-extralight relative w-full flex flex-row-reverse justify-center items-center h-20">
           <span className="border-t border-foreground/25 w-full h-1"></span>
           <span className="bg-background tracking-widest px-3 whitespace-nowrap">
@@ -140,38 +140,40 @@ const Page = () => {
           </span>
         </h2>
 
-        <div className="w-full h-full grid grid-cols-1 md:grid-cols-2 gap-y-14 place-items-center">
+        <div className="w-full h-full grid grid-cols-1 lg:grid-cols-2 gap-y-14 place-items-center pt-10">
           <Link href={"/"} className="relative">
-          <CldImage 
-          src="men" 
-          width={370} 
-          height={400} 
-          alt="Men"
-          format="auto"
-          quality={"auto"}
-          />
+            <CldImage
+              src="men"
+              width={370}
+              height={400}
+              alt="Men"
+              format="auto"
+              quality={"auto"}
+            />
 
-          <span className="absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 text-white text-4xl">Men</span>
-          
+            <span className="absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 text-white text-4xl">
+              Men
+            </span>
           </Link>
           <Link href={"/"} className="relative">
-          <CldImage 
-          src="women" 
-          width={370} 
-          height={400} 
-          alt="Men"
-          format="auto"
-          quality={"auto"}
-          className="dark:saturate-20"
-          />
+            <CldImage
+              src="women"
+              width={370}
+              height={400}
+              alt="Women"
+              format="auto"
+              quality={"auto"}
+              className="dark:saturate-20"
+            />
 
-          <span className="absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 text-white text-4xl">Women</span>
-
+            <span className="absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 text-white text-4xl">
+              Women
+            </span>
           </Link>
         </div>
       </div>
 
-      <div className="w-screen h-screen min-h-screen font-general-sans mt-40">
+      <div className="w-screen font-general-sans mt-40 px-2">
         <h2 className="px-2 md:px-16 text-xl md:text-2xl font-lejour uppercase  font-extralight relative w-full flex flex-row-reverse justify-center items-center h-20">
           <span className="border-t border-foreground/25 w-full h-1"></span>
           <span className="bg-background tracking-widest px-3 whitespace-nowrap">
@@ -179,11 +181,55 @@ const Page = () => {
           </span>
         </h2>
 
-          
-          
-        </div>
+        <div className="w-full h-full grid grid-cols-1 lg:grid-cols-3 gap-y-14 place-items-center pt-10">
+          <Link href={"/"} className="relative border p-2 px-4 rounded-xl group">
+            <CldImage
+              src="designer"
+              width={370}
+              height={400}
+              alt="Designers"
+              format="auto"
+              quality={"auto"}
+              removeBackground
+              className="scale-75"
+            />
 
-      
+            <span className="text-lg md:text-xl">Designers</span>
+          </Link>
+          <Link href={"/"} className="relative border p-2 px-4 rounded-xl">
+            <CldImage
+              src="niche"
+              width={370}
+              height={400}
+              alt="Niche"
+              format="auto"
+              quality={"auto"}
+              removeBackground
+            />
+
+            <span className="text-lg md:text-xl">Niche</span>
+          </Link>
+          <Link href={"/"} className="relative border p-2 px-4 rounded-xl">
+            <CldImage
+              src="eastern"
+              width={370}
+              height={400}
+              alt="Middle Eastern"
+              format="auto"
+              quality={"auto"}
+              removeBackground
+            />
+
+            <span className="text-lg md:text-xl">Middle Eastern</span>
+          </Link>
+        </div>
+      </div>
+
+      <div className="w-screen min-h-screen font-general-sans mt-40">
+
+      </div>
+
+
     </div>
   );
 };
