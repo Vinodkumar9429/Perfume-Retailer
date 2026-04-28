@@ -7,6 +7,7 @@ import ProductCard from "@/shared/components/ProductCard";
 import { Button } from "@/shared/components/ui/button";
 import { FancyText } from "@/shared/components/ui/fancy-text";
 import { Marquee } from "@/shared/components/ui/marquee";
+import { ArrowUpRight } from "lucide-react";
 import { CldImage } from "next-cloudinary";
 import Link from "next/link";
 import { useState } from "react";
@@ -218,6 +219,7 @@ const Page = () => {
               format="auto"
               quality={"auto"}
               removeBackground
+              className="scale-85"
             />
 
             <span className="text-lg md:text-xl">Middle Eastern</span>
@@ -225,10 +227,11 @@ const Page = () => {
         </div>
       </div>
 
-      <div className="w-screen min-h-screen font-general-sans mt-40">
-
+      <div className="w-screen h-[60%] font-general-sans flex mt-20 justify-center items-center">
+          <h2 className="border px-4 py-2 rounded-2xl cursor-pointer">Full Store <ArrowUpRight className="w-5 h-5 inline" /></h2>
       </div>
 
+        
 
     </div>
   );
