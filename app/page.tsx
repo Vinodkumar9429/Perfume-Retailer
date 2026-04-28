@@ -1,6 +1,7 @@
 "use client";
 import { ArrowUp } from "@/components/animate-ui/icons/arrow-up";
 import { BestSellers } from "@/mock/BestSellers.products";
+import Footer from "@/shared/components/Footer";
 import Header from "@/shared/components/Header";
 import HeroImage from "@/shared/components/HeroImage";
 import ProductCard from "@/shared/components/ProductCard";
@@ -285,7 +286,9 @@ const Page = () => {
         </div>
       </div>
 
-      
+      <div className="pb-10 w-full h-full md:w-full md:h-110">
+      <Footer />
+      </div>
     </div>
   );
 };
