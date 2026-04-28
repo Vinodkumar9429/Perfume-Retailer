@@ -4,6 +4,7 @@ import { BestSellers } from "@/mock/BestSellers.products";
 import Header from "@/shared/components/Header";
 import HeroImage from "@/shared/components/HeroImage";
 import ProductCard from "@/shared/components/ProductCard";
+import TestimonialsCard from "@/shared/components/TestimonialsCard";
 import { Button } from "@/shared/components/ui/button";
 import { FancyText } from "@/shared/components/ui/fancy-text";
 import { Marquee } from "@/shared/components/ui/marquee";
@@ -20,6 +21,34 @@ const brandImages = [
   "brand5",
   "brand8",
   "brand7",
+];
+
+const reviews = [
+  {
+    name: "Aarav Sharma",
+    review:
+      "The 'Royal Sandalwood' is pure nostalgia. It smells exactly like the premium Mysore sandalwood I've been looking for. Lasts easily through an 8-hour office day.",
+  },
+  {
+    name: "Priya Iyer",
+    review:
+      "Incredible fragrance! I was skeptical about buying online, but the jasmine notes are so fresh and authentic. Perfect for wedding season and ethnic wear.",
+  },
+  {
+    name: "Ishaan Malhotra",
+    review:
+      "Great projection and sillage. Even in this Mumbai humidity, the scent holds up really well. The packaging was very secure and felt very high-end.",
+  },
+  {
+    name: "Ananya Deshmukh",
+    review:
+      "I love that these are EDP (Eau de Parfum) strength. Usually, perfumes fade so fast in our climate, but this one lingers on clothes even the next day.",
+  },
+  {
+    name: "Zoya Khan",
+    review:
+      "Beautifully balanced notes of oud and rose. It’s not overpowering but definitely makes a statement. Delivery to Bangalore was super fast too!",
+  },
 ];
 
 const Page = () => {
@@ -183,7 +212,10 @@ const Page = () => {
         </h2>
 
         <div className="w-full h-full grid grid-cols-1 lg:grid-cols-3 gap-y-14 place-items-center pt-10">
-          <Link href={"/"} className="relative border p-2 px-4 rounded-xl group">
+          <Link
+            href={"/"}
+            className="relative border p-2 px-4 rounded-xl group"
+          >
             <CldImage
               src="designer"
               width={370}
@@ -228,11 +260,32 @@ const Page = () => {
       </div>
 
       <div className="w-screen h-[60%] font-general-sans flex mt-20 justify-center items-center">
-          <h2 className="border px-4 py-2 rounded-2xl cursor-pointer">Full Store <ArrowUpRight className="w-5 h-5 inline" /></h2>
+        <h2 className="border px-4 py-2 rounded-2xl cursor-pointer">
+          Full Store <ArrowUpRight className="w-5 h-5 inline" />
+        </h2>
       </div>
 
-        
+      <div className="w-screen h-screen">
+        <h2 className="px-2 md:px-16 text-xl md:text-2xl font-lejour uppercase  font-extralight relative w-full flex flex-row-reverse justify-center items-center h-20">
+          <span className="border-t border-foreground/25 w-full h-1"></span>
+          <span className="bg-background tracking-widest px-3 whitespace-nowrap">
+            Testimonials
+          </span>
+        </h2>
+        <div className="w-full h-full flex justify-center items-center">
+          <Marquee pauseOnHover className="[--duration:66s]">
+            {reviews.map((review, i) => (
+              <TestimonialsCard
+                key={i}
+                name={review.name}
+                review={review.review}
+              />
+            ))}
+          </Marquee>
+        </div>
+      </div>
 
+      
     </div>
   );
 };
