@@ -1,5 +1,4 @@
-"use client";
-import ProductCard from "@/features/perfumes/components/ProductCard";
+import PerfumeGrid from "@/features/perfumes/components/PerfumeGrid";
 import Header from "@/shared/components/Header";
 
 const tempProducts = [
@@ -118,20 +117,8 @@ const Page = () => {
     <div className="w-screen h-screen min-h-screen px-6">
       <Header />
 
-      <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  place-content-center py-30 gap-y-16 px-2 md:px-5">
-        {tempProducts.map((el) => (
-          <ProductCard
-            key={el.id}
-            brand={el.brand}
-            gender={el.gender}
-            id={el.id}
-            name={el.name}
-            price={el.price}
-            publicImageUrl={el.publicImageUrl}
-            rating={el.rating}
-          />
-        ))}
-      </div>
+      
+      <PerfumeGrid tempProducts={tempProducts} />
     </div>
   );
 };
