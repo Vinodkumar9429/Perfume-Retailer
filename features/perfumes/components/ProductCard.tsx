@@ -1,5 +1,5 @@
 import { bestSellersType } from "@/mock/BestSellers.products";
-import ProductImage from "@/shared/components/ProductImage";
+import ProductImage from "@/features/perfumes/components/ProductImage";
 import ProductRating from "@/shared/components/StarRating";
 import { Heart, ShoppingCart } from "lucide-react";
 import Link from "next/link";
@@ -10,7 +10,7 @@ interface BestSellersExtendedType extends bestSellersType {
 
 const ProductCard = ({brand, name, price, publicImageUrl, rating, link} : BestSellersExtendedType) => {
   return (
-    <div className="relative flex flex-col border rounded-xl p-3 shadow-lg overflow-hidden dark:border-white/20">
+    <div className="relative flex flex-col border rounded-xl p-3 shadow-lg overflow-hidden dark:border-white/20 max-w-[25rem]">
       <Link
         href={link ? link : ""}
         className="hover:scale-90 transition-transform duration-500 h-2/3"

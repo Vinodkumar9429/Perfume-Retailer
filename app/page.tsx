@@ -4,7 +4,7 @@ import { BestSellers } from "@/mock/BestSellers.products";
 import Footer from "@/shared/components/Footer";
 import Header from "@/shared/components/Header";
 import HeroImage from "@/shared/components/HeroImage";
-import ProductCard from "@/shared/components/ProductCard";
+import ProductCard from "@/features/perfumes/components/ProductCard";
 import TestimonialsCard from "@/shared/components/TestimonialsCard";
 import { Button } from "@/shared/components/ui/button";
 import { FancyText } from "@/shared/components/ui/fancy-text";
@@ -84,10 +84,10 @@ const Page = () => {
           </RainbowButton> */}
 
           <Link
-            href="/"
+            href="/products"
             className="absolute top-[70%] left-[50%] -translate-x-1/2 -translate-y-1/2 font-general-sans bg-foreground dark:text-[#E5C3A6] dark:bg-background border border-white/40 text-background cursor-pointer px-4 flex justify-between gap-4 items-center py-1.5 rounded-xl group"
           >
-            Shop Now{" "}
+            Shop Now
             <ArrowUp className="rotate-45 h-5 w-5 cursor-pointer group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform duration-500" />
           </Link>
         </div>
@@ -261,9 +261,9 @@ const Page = () => {
       </div>
 
       <div className="w-screen h-[60%] font-general-sans flex mt-20 justify-center items-center">
-        <h2 className="border px-4 py-2 rounded-2xl cursor-pointer">
+        <Link href={"/products"} className="border px-4 py-2 rounded-2xl cursor-pointer">
           Full Store <ArrowUpRight className="w-5 h-5 inline" />
-        </h2>
+        </Link>
       </div>
 
       <div className="w-screen h-screen">
@@ -286,7 +286,7 @@ const Page = () => {
         </div>
       </div>
 
-      <div className="pb-10 w-full h-full md:w-full md:h-110">
+      <div className="pb-30 w-full h-full md:w-full md:h-110">
       <Footer />
       </div>
     </div>
