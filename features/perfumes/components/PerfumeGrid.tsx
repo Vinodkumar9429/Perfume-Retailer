@@ -1,7 +1,20 @@
 "use client";
+
+import type { ReactNode } from "react";
+
 import ProductCard from "@/features/perfumes/components/ProductCard";
 
-interface tempProductType {
+export type PerfumeGridProduct = {
+  id: string;
+  name: string;
+  brand: string;
+  publicImageUrl: string;
+  gender: string;
+  price: number;
+  rating: number;
+};
+
+interface TempProductType {
   tempProducts: {
     id: string;
     name: string;
@@ -10,12 +23,21 @@ interface tempProductType {
     gender: string;
     price: number;
     rating: number;
-  }[]
+  }[];
+  emptyState?: ReactNode;
 }
 
-const PerfumeGrid = ({ tempProducts }: tempProductType) => {
+const PerfumeGrid = ({ tempProducts, emptyState }: TempProductType) => {
+  if (tempProducts.length === 0) {
+    return (
+      <div className="flex min-h-[24rem] w-full items-center justify-center px-2 py-10">
+        {emptyState}
+      </div>
+    );
+  }
+
   return (
-    <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  place-content-center place-items-center py-30 gap-y-16 px-2 md:px-5">
+    <div className="grid w-full grid-cols-1 place-content-center place-items-center gap-y-16 px-2 py-10 md:grid-cols-2 md:px-5 lg:grid-cols-3">
       {tempProducts.map((el) => (
         <ProductCard
           key={el.id}
